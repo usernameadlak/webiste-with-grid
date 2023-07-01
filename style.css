@@ -1,0 +1,191 @@
+/* CSS Variables */
+:root{
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    /* below 0.8 is the opacity.  */
+    --shadow: 0 1px 5px rgba(104,104,104, 0.8)
+}
+/* css box sizing property allows us to include the 
+padding and border in an elements total width ad height.  */
+html{
+    box-sizing: border-box;
+    color: var(--dark);
+}
+body{
+    background-color: #ccc;
+    margin: 30px 50px;
+    line-height: 1.4;
+}
+/* First and foremost, you should know that the standard root font-size of browsers is 16px. */
+.btn{
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+.img{
+    max-width: 100%;
+}
+.capsule{
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* navigation */
+
+.main-nav ul{
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    /* reason behind the padding being zero is already nav has pading */
+    list-style: none;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    can also write the above code as. */
+    grid-template-columns: repeat(4, 1fr);
+}
+.main-nav a{
+    background-color: var(--primary);
+    display: block;
+    text-decoration: none;
+    padding: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: var(--dark);
+    box-shadow: var(--shadow);
+}
+.main-nav a:hover{
+    background: var(--dark);
+    color: var(--light);
+}
+
+/* top container  */
+.top-container{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas:
+        'showcase showcase topbox1'
+        'showcase showcase topbox2';
+}
+
+.showcase{
+    grid-area: showcase;
+    min-height: 400px;
+    background: url(img/showcase.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.showcase h1{
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+.showcase p{
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+}
+
+.topbox{
+    background: var(--primary);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+
+}
+.topbox .price{
+    font-size: 2rem;
+}
+.topbox1{
+    grid-area: topbox1;
+}
+.topbox2{
+    grid-area: topbox2;
+}
+
+/* boxes */
+.boxes{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+}
+.box{
+    background: var(--primary);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* info section  */
+
+.info{
+    background: var(--primary);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+}
+.imgg{
+    width: 100%;
+  }
+  
+/* footer */
+footer{
+    margin-top: 2rem;
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 1rem;
+}
+
+/* media-queries */
+
+@media (max-width: 700px) {
+    .top-container {
+      grid-template-areas:
+        'showcase showcase'
+        'topbox1 topbox2';
+    }
+  
+    .showcase h1 {
+      font-size: 2.5rem;
+    }
+  
+    .main-nav ul {
+      grid-template-columns: 1fr;
+    }
+  
+    .info {
+      grid-template-columns: 1fr;
+    }
+  
+    .info .btn {
+      display: block;
+      text-align: center;
+      margin: auto;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .top-container {
+      grid-template-areas:
+        'showcase'
+        'topbox1'
+        'topbox2';
+    }
+  }
+
+  
